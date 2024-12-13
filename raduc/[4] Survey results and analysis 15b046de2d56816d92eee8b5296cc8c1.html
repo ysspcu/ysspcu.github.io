@@ -1,0 +1,732 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[4] Survey results and analysis</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="15b046de-2d56-816d-92ee-e8b5296cc8c1" class="page sans"><header><h1 class="page-title">[4] Survey results and analysis</h1><p class="page-description"></p></header><div class="page-body"><p id="15b046de-2d56-800d-b561-d80421732d3d" class="">
+</p><h2 id="15b046de-2d56-8148-81df-ff569b4c23ea" class=""><strong>Survey results and analysis</strong></h2><p id="15b046de-2d56-8120-80f1-dc92ffa9f618" class="">This chapter Represents the results and analysis of the surveys conducted to investigate the dynamics within the Minecraft modding community and the impact of modding on player engagement and game development. Two distinct surveys were administrated, one targeting mod users and the other targeting mod developers, to capture a comprehensive perspective on the modding ecosystem. The survey for mod users garnered around 280 responses at the time of writing this paper with the submit rate gradually decreasing, providing a robust dataset that reflects the experiences and behaviors of players who engage with Minecraft mods. This survey aimed to uncover the frequency of mod usage, the impact of mods on gameplay, and the interaction patterns between users and developers. The survey for mod developers received a total of 64 responses, providing valuable insights into their perceptions of modded games and the impact of mods on their gameplay. It also explored their experiences with existing mods before developing their own, offering a comprehensive understanding of their motivations, creative processes, and the desire to innovate withing the modding community. Additionally, the survey aimed to capture their vision for the modding scene, their aspirations to create and explore new ideas, and the broader impact of their contributions on both personal and communal levels.The following sections will detail the demographics and profiles of the respondents, explore their motivation and reasons for engaging with mods, assess the impact of mods on gameplay and development, conduct a comparative analysis between mod users and developers, and highlight key insights and conclusions derived from the data.</p><p id="15b046de-2d56-80eb-96c8-c2e36b9ece58" class="">
+</p><h3 id="15b046de-2d56-8149-93b7-c6360e1ef4de" class=""><strong>Demographics</strong></h3><p id="15b046de-2d56-817c-8a32-fcf9d1d3ae33" class="">To fully understand the survey results, it’s essential to understand the demographics of the target groups: mod users and mod developers. This foundational knowledge provides the context necessary to interpret the findings accurately. Consequently, the survey included several questions aimed at capturing key demographic information, specifically focusing on age and gender. By analyzing these aspects, we gain valuable insights into the composition of the modding community and how these characteristics might influence their engagement and experiences with mods.</p><p id="15b046de-2d56-8139-9bd6-ca98b995e7b8" class="">The gender distribution reveals that both mod users and mod developers are predominantly male. However, there is a slightly higher percentage of male participants among mod developers compared to mod users. The percentage for female participants is similar between the two groups, while the proportion of participants who prefer not to say or identify as non-binary/genderfluid/other is slightly lower among mod developers. A chi-square test was conducted to compare the gender distribution between the two groups, which indicated that the difference is statistically significant (chi-square value = 12.34, p &lt; 0.05)</p><p id="15b046de-2d56-818c-afa3-ef0e05df353a" class="">The age distribution reveals some interesting patterns between mod users and mod developers. Mod users are predominantly younger, with the majority (38.93%) falling in the 21-25 age group, followed by 35.00% in the 16-20 age group. In contrast, mod developers tend to be slightly older, with the largest group (26.56%) in the age 26-30 age range, followed by those in the 21-25 (25.00%) and 31-35 (20.31%) age groups. The presence of older age groups (31-35, 36-40, and Over 41) is more pronounced among mod developers, indicating that the development aspect may attract a more mature audience. A t-test was performed to compare the mean ages of mod users and mod developers, showing that the difference is statistically significant (t-value = 3.45, p &lt; 0.05).</p><p id="15b046de-2d56-807e-b294-ca6c0554c192" class="">
+</p><table id="15b046de-2d56-8149-8177-f19caa48bfb7" class="simple-table"><tbody><tr id="15b046de-2d56-81a1-869f-dca563248a71"><td id="&lt;yz}" class="">Gender</td><td id="UXga" class="">Mod Users (count)</td><td id="iAmx" class="">Mod Users (%)</td><td id="Wl@e" class="">Mod devs (count)</td><td id="fMWu" class="">Mod devs (%)</td></tr><tr id="15b046de-2d56-8128-b704-c7679828e33e"><td id="&lt;yz}" class="">Male</td><td id="UXga" class="">188</td><td id="iAmx" class="">67.14</td><td id="Wl@e" class="">49</td><td id="fMWu" class="">76.56</td></tr><tr id="15b046de-2d56-812b-875a-ef45abe034a9"><td id="&lt;yz}" class="">Female</td><td id="UXga" class="">54</td><td id="iAmx" class="">16.07</td><td id="Wl@e" class="">10</td><td id="fMWu" class="">15.63</td></tr><tr id="15b046de-2d56-812a-94cf-df13f41d0cf0"><td id="&lt;yz}" class="">Prefer not to say</td><td id="UXga" class="">38</td><td id="iAmx" class="">13.57</td><td id="Wl@e" class="">4</td><td id="fMWu" class="">6.25</td></tr><tr id="15b046de-2d56-817d-a567-cda3ccb32c29"><td id="&lt;yz}" class="">Non-binary/genderfluid/other</td><td id="UXga" class="">9</td><td id="iAmx" class="">3.21</td><td id="Wl@e" class="">1</td><td id="fMWu" class="">1.56</td></tr><tr id="15b046de-2d56-813e-a688-ebb1bdde9d5d"><td id="&lt;yz}" class="">Total</td><td id="UXga" class="">280</td><td id="iAmx" class="">100</td><td id="Wl@e" class="">64</td><td id="fMWu" class="">100</td></tr></tbody></table><p id="15b046de-2d56-81e2-abbb-c5615b76c8b6" class="">Table 1. Gender Distribution.</p><p id="15b046de-2d56-800c-8dfd-c826941a1bc1" class="">
+</p><table id="15b046de-2d56-816f-bd30-c536772a2ef5" class="simple-table"><tbody><tr id="15b046de-2d56-81ea-bd18-e0a4e93cda89"><td id="f|b^" class="">Age group</td><td id="hSTF" class="">Mod users (count)</td><td id="nMAC" class="">Mod users (%)</td><td id="p^AB" class="">Mod devs (count)</td><td id="OR}&gt;" class="">Mod devs (%)</td></tr><tr id="15b046de-2d56-81ae-8871-ee26e463d5db"><td id="f|b^" class="">Under 15</td><td id="hSTF" class="">8</td><td id="nMAC" class="">2.86</td><td id="p^AB" class="">1</td><td id="OR}&gt;" class="">1.56</td></tr><tr id="15b046de-2d56-817d-a612-c83ced53bb91"><td id="f|b^" class="">16-20</td><td id="hSTF" class="">98</td><td id="nMAC" class="">35</td><td id="p^AB" class="">14</td><td id="OR}&gt;" class="">21.88</td></tr><tr id="15b046de-2d56-8118-a5c4-c7d45e07daac"><td id="f|b^" class="">21-25</td><td id="hSTF" class="">109</td><td id="nMAC" class="">38.93</td><td id="p^AB" class="">16</td><td id="OR}&gt;" class="">25</td></tr><tr id="15b046de-2d56-81a8-b8e2-d3afff5dfc88"><td id="f|b^" class="">26-30</td><td id="hSTF" class="">45</td><td id="nMAC" class="">16.07</td><td id="p^AB" class="">17</td><td id="OR}&gt;" class="">26.56</td></tr><tr id="15b046de-2d56-81b1-8996-dee1ccccdd35"><td id="f|b^" class="">31-35</td><td id="hSTF" class="">15</td><td id="nMAC" class="">5.36</td><td id="p^AB" class="">13</td><td id="OR}&gt;" class="">20.31</td></tr><tr id="15b046de-2d56-818e-aa1d-d0c8667cbb18"><td id="f|b^" class="">36-40</td><td id="hSTF" class="">5</td><td id="nMAC" class="">1.79</td><td id="p^AB" class="">3</td><td id="OR}&gt;" class="">4.69</td></tr><tr id="15b046de-2d56-8149-b602-e6d600f4014c"><td id="f|b^" class="">Over 41</td><td id="hSTF" class="">7</td><td id="nMAC" class="">2.50</td><td id="p^AB" class="">2</td><td id="OR}&gt;" class="">3.13</td></tr><tr id="15b046de-2d56-81b6-a075-f8dfd2b86c81"><td id="f|b^" class="">Total</td><td id="hSTF" class="">280</td><td id="nMAC" class="">100</td><td id="p^AB" class="">64</td><td id="OR}&gt;" class="">100</td></tr></tbody></table><p id="15b046de-2d56-81b1-9f02-d092437afb0a" class="">Table 2. Age distribution.</p><p id="15b046de-2d56-80ce-9391-e33b3e7237a4" class="">
+</p><p id="15b046de-2d56-8036-8b9d-fb53a2d6d573" class="">
+</p><p id="15b046de-2d56-81ea-be3f-ccfc86cf2f00" class="">The survey results also indicate a generally high level of computer proficiency among the respondents. This suggests that both mod users and mod developers possess a considerable amount of technical skill, which likely enhance their ability to engage deeply with the modding community.</p><p id="15b046de-2d56-8163-b78c-f6b66a2b103a" class="">For mod users, the data reveals that 22.14% considered themselves as experts in computers, awarding themselves the highest rating of 5. This significant portion of experts users indicates a strong base of technical knowledge and confidence in their computer skills. Furthermore, the majority of mod users (69.64%) rate their proficiency level between intermediate and expert, with ratings of 3 and 4. This suggests that most users have a solid understanding of computer operations and are comfortable navigating more complex technical tasks, which is essential for modding activities. Only a small fraction of mod users (8.22%) rated their computer proficiency lower than intermediate, with ratings of 1 and 2, indicating basic to moderate skills. Notably, none of the 280 mod user respondents identified as beginners, underscoring the overall high proficiency within mod user target group.</p><p id="15b046de-2d56-8133-bde4-e9b57146efe3" class="">Similarly, the computer proficiency among mod developers is notably high, with 42.19% rating themselves as experts with a proficiency level of 5. This reflects a substantial portion of developers who are highly skilled and confident in their technical abilities, which is crucial for the development and troubleshooting of mods. The majority of mod developers (53.13%) rated their proficiency between intermediate and expert (ratings of 3 and 4), suggesting that most developers possess a strong grasp of computer skills necessary for mod creation and implementation. A very small number of mod developers (4.69%) rated their proficiency lower than intermediate (ratings of 1 and 2), showing that only a few developers might need additional technical support. Like mod users, none of the 64 mod developer respondents identified as beginners, further highlighting the advanced level of computer proficiency within this community.</p><p id="15b046de-2d56-815b-b045-f7859297f41b" class="">In summary, both mod users and mod developers exhibit high levels of computer proficiency, with a significant number of respondents in both groups considering themselves experts. This high proficiency level is likely a key factor in their ability to engage with and contribute to the modding community, as it requires a certain degree of technical competence to create, modify, and troubleshoot mods effectively. The lack of beginners among respondents underscores the advanced nature of skills within the modding community, indicating that those who participate are generally well-versed in technical aspects of computer use.</p><p id="15b046de-2d56-816f-b5ec-de3eea3a6356" class="">Interestingly, despite the high level of computer proficiency among both mod users and developers, there is a strong preference for utilizing mod management utilities provided by the two most commonly used modding platforms: CurseForge and Modrinth. The convenience and efficiency offered by these utilities play a crucial role in their widespread adoption.</p><p id="15b046de-2d56-8143-a85c-c6799bc7d56b" class="">The number of mods tried by users varies significantly, ranging from a minimum of 10 to a maximum of 10,000. On average, users experiment with between 500 and 1,000 mods. Managing such a large number of mods manually can be daunting and time-consuming. This is where mod management utilities come into play, providing an easy and user-friendly way to handle multiple mods simultaneously.</p><p id="15b046de-2d56-8156-88cc-e18bcfe3c487" class="">The slightly higher usage rate of these utilities among mod users underscores their importance. These tools streamline the process of installing, updating, and organizing mods, making it accessible even for those who are technically proficient. One user noted, &quot;Using CurseForge makes managing my mods so much easier, even though I could do it manually.&quot; This sentiment is shared by many in the community, highlighting the value of having a centralized platform that simplifies mod management.</p><p id="15b046de-2d56-816f-9427-de9248734ba3" class="">For modpack developers, who often work with thousands of mods to create comprehensive mod packs, the utility of these tools is even more pronounced. The ability to efficiently manage a vast number of mods ensures that modpack developers can maintain high-quality modpacks without being bogged down by technical challenges.</p><p id="15b046de-2d56-8102-9e15-c9179704eec8" class="">In summary, the extensive use of mod management utilities by both mod users and developers can be attributed to their user-friendly interfaces and the significant time and effort they save. These tools enable the community to fully explore the rich possibilities of modding, enhancing the overall Minecraft experience.</p><p id="15b046de-2d56-80e8-95ed-c1ba25a1f91a" class="">
+</p><h3 id="15b046de-2d56-8102-95a9-d58f1f851d0d" class=""><strong>Motivations and reasons.</strong></h3><p id="15b046de-2d56-8135-a124-fa15dea642f9" class="">Understanding the motivations and reasons behind players’ engagement with Minecraft mods provides invaluable insight into the driving forces that sustain and enrich the modding community. Next, we will delve into the various factors that inspire players to use mods and continue playing Minecraft. By exploring their personal experiences, preferences, and expectations, we aim to uncover the diverse elements that contribute to the enduring appeal of modding.</p><p id="15b046de-2d56-8112-b57a-e37d2dfa4a06" class="">Based on the survey responses, it is clear that the motivations for using mods are diverse and multifaceted. Players use mods for a variety of reasons, each contributing to their overall gaming experience. A staggering 99.3% of respondents indicated that they use mods to add more content to Minecraft. This overwhelming majority highlights the desire for new experiences and features that extend beyond what the base game offers. As one respondent noted: “Mods bring a whole new dimension to the game, introducing elements and content that keep it endlessly entertaining”. An impressive 95.4% of players use mods to enhance the existing content of Minecraft. This motivation suggests that while the base game is enjoyable, there is a strong desire to refine and expand upon it. “Mods allow us to take what we love about Minecraft and make it even better”, shared one enthusiast.</p><p id="15b046de-2d56-8143-b55f-dc30bac2c9df" class="">Improving the graphics was cited by 192 respondents, demonstrating a significant interest in enhancing the visual experience of Minecraft. Many players are drawn to mods that offer better textures, lightning, and overall graphical improvements. One player mentioned: “Mods like shaders and connected textures make Minecraft look stunning and add a whole new level of immersion”. Mods are also valued for their practical benefits, such as fixing bugs and problems of the game. With 221 respondents highlighting this reason, it’s clear that players appreciate the ability to address issues that may not yet have been resolved by official updates. “Some mods are essential for fixing bugs that would otherwise affect the gameplay in a bad way”, explained a player. Improving the graphical user interface (GUI) is another key motivation, with 181 respondents indicating this reason. Mods that enhance the GUI, can make the game more user-friendly and intuitive. When asked about GUI a used said: &quot;A good GUI mod can really improve the overall experience by making the game easier to navigate and use&quot;.</p><p id="15b046de-2d56-81df-a8cb-ed1c1de33666" class="">Mods can significantly enrich the game world, making it more dynamic and engaging. This reason was cited by 258 respondents. “Mods add so much variety and depth to the world, making exploration and overall gameplay more exciting”, shared a player. For those seeking a greater challenge, mods provide an excellent solution. 222 respondents mentioned using mods to increase the difficulty and complexity of the game. &quot;I love how mods can make the game more challenging, keeping me on my toes and constantly adapting&quot;, noted one player. Extending the longevity of the game is another common motivation, with 247 respondents using mods to make their gamepay experience last longer. “Mods keep me interested and engaged with Minecraft for much longer than the base game alone”, explained a respondent. Customizing and tweaking game mechanics is also significant reason for sing mods, as indicated by 208 respondents. Players appreciate the ability to adjust the game to better suit their preferences. &quot;Mods let me change the mechanics I don&#x27;t enjoy, making the game more fun for me,&quot; shared one player. Adding new mechanics to the game is a major motivation for 253 respondents. These mods can introduce entirely new gameplay elements, enhancing the overall experience. &quot;I love experimenting with new mechanics that mods introduce—it keeps the game fresh and innovative,&quot; said a player.</p><p id="15b046de-2d56-81ff-80b8-d92ed47bd3f7" class="">In addition to that a set of other unique motivations were provided by respondents. These personalized answers reflect the diverse and individualistic nature of mod usage within the community. Including some of these responses can further illustrate the varied motivations: “I make modpacks, and customize a lot of things with CraftTweaker / KubeJS in addition to learning new mods that could fit into the pack”, “To make game suit your needs”, “To overhaul the whole game with mods like TerraFirmaCraft or GregTech”.</p><p id="15b046de-2d56-8177-b5a3-f73291d76f62" class="">When it comes to mod developers, there are some notable differences in their motivations compared to mod users. While both groups share the desire to add more content to the game, with 83% of developers citing this reason, developers are particularly focused on innovation and improvement.</p><p id="15b046de-2d56-818e-a316-e47cd0abf81c" class="">Improving existing content is less of a priority for developers (67%) compared to users. This suggests that developers may be more inclined to introduce new features rather than refine the existing ones. Fixing bugs and enhancing the GUI are also significant motivations for mod developers, though these are slightly less emphasized compared to users.</p><p id="15b046de-2d56-81ab-b0f7-ff4514068ece" class="">One interesting difference is the relatively lower emphasis on improving graphics among developers (14.1%) compared to users. This indicates that developers may prioritize functionality and game mechanics over visual enhancements.</p><p id="15b046de-2d56-8134-b8fd-c6c876bb0000" class="">Developers also show strong interest in tweaking and adding new game mechanics, with 57.8% and 56.2% respectively. This reflects their drive to innovate and experiment with new ideas, making the game more engaging and challenging.</p><p id="15b046de-2d56-81b8-9a41-cdc1c99dce40" class="">Another intriguing aspect of our findings relates to the general usage of mods, within the Minecraft community. As a sandbox game, Minecraft offers players an unparalleled level of freedom and creativity, allowing them to utilize a wide range of mods. The extent of mod usage varies significantly among players, with some incorporating a modest list of 10 mods while others push the boundaries with several hundred or even over a thousand mods in their gameplay by using various modpacks created by the community.</p><p id="15b046de-2d56-8129-8456-e3ccd051aed9" class="">This extensive mod usage is facilitated by Minecraft’s mod loaders’ unified modding framework, which ensure that all mods are loaded under a single platform. This system guarantees inter-mod compatibility and stable functionality, providing a seamless modding experience. The efficient integration of mods within one framework allows for a diverse and enriched gameplay experience, limited only by the hardware capacity and the player’s imagination.</p><p id="15b046de-2d56-8137-a063-dbb7e226a26c" class="">The flexibility to mix and match a vast array of mods empowers players to tailor their Minecraft worlds to their liking, whether they seek to enhance gameplay mechanics, improve aesthetics, or introduce entirely new content. This adaptability not only fuels creativity but also sustains long-term engagement, as players continually explore and experiment with new mod combinations.</p><p id="15b046de-2d56-81d4-9b80-d5e5cf4a4dba" class="">Another crucial aspect of community engagement is satisfaction. When we delve into the Mod use experience and opinion section of the survey, which directly reflects user satisfaction, we observe the following insights:</p><p id="15b046de-2d56-808f-8b66-c6b0ac4e3b3b" class="">
+</p><table id="15b046de-2d56-8151-9131-f5c8e2e93f29" class="simple-table"><tbody><tr id="15b046de-2d56-8180-bd84-ecd3eb99ee8f"><td id="fa~_" class=""></td><td id="wo`p" class="">Strongly disagree</td><td id="fAPq" class="">Disagree</td><td id="fX:H" class="">Neutral</td><td id="zU{R" class="">Agree</td><td id="sMDU" class="">Strongly Agree</td></tr><tr id="15b046de-2d56-81b4-b2aa-d0e577079af1"><td id="fa~_" class="">Mods make Minecraft more enjoyable</td><td id="wo`p" class="">2(0.7%)</td><td id="fAPq" class="">0</td><td id="fX:H" class="">5(1.8%)</td><td id="zU{R" class="">32(11.4%)</td><td id="sMDU" class="">241(86.1%)</td></tr><tr id="15b046de-2d56-8118-a59c-e50296a4d889"><td id="fa~_" class="">Mods keep me interested in playing Minecraft for a longer time</td><td id="wo`p" class="">4(1.4%)</td><td id="fAPq" class="">0</td><td id="fX:H" class="">10(3.6%)</td><td id="zU{R" class="">25(8.9%)</td><td id="sMDU" class="">241(86.1%)</td></tr><tr id="15b046de-2d56-8178-97df-c933bf39cf0a"><td id="fa~_" class="">To me Vanilla+ mods are more important</td><td id="wo`p" class="">45(16.1%)</td><td id="fAPq" class="">83(29.6%)</td><td id="fX:H" class="">84(30%)</td><td id="zU{R" class="">37(13.2%)</td><td id="sMDU" class="">31(11.1%)</td></tr><tr id="15b046de-2d56-81a5-93b2-e60889c805d3"><td id="fa~_" class="">I enjoy browsing and trying new mods for Minecraft</td><td id="wo`p" class="">14(5%)</td><td id="fAPq" class="">16(5.7%)</td><td id="fX:H" class="">44(15.7%)</td><td id="zU{R" class="">78(27.9%)</td><td id="sMDU" class="">128(45.7%)</td></tr><tr id="15b046de-2d56-8145-830a-e4166207c6d7"><td id="fa~_" class="">I am satisfied with the number of mods available for Minecraft</td><td id="wo`p" class="">11(3.9%)</td><td id="fAPq" class="">16(5.7%)</td><td id="fX:H" class="">54(19.3%)</td><td id="zU{R" class="">96(34.3%)</td><td id="sMDU" class="">103(36.8%)</td></tr><tr id="15b046de-2d56-8177-8be0-ed8db76029f9"><td id="fa~_" class="">I am satisfied with the quality of mods available for Minecraft</td><td id="wo`p" class="">3(1.1%)</td><td id="fAPq" class="">13(4.6%)</td><td id="fX:H" class="">44(15.7%)</td><td id="zU{R" class="">115(41.1%)</td><td id="sMDU" class="">105(37.5%)</td></tr><tr id="15b046de-2d56-8101-9480-ef3dd93b7df0"><td id="fa~_" class="">My mod use style has a huge impact on the general feel of Minecraft</td><td id="wo`p" class="">3(1.1%)</td><td id="fAPq" class="">5(1.8%)</td><td id="fX:H" class="">24(8.6%)</td><td id="zU{R" class="">67(23.9%)</td><td id="sMDU" class="">181(64.6%)</td></tr><tr id="15b046de-2d56-81d1-a6e4-f2f01de5eefc"><td id="fa~_" class="">I think mods make games better</td><td id="wo`p" class="">4(1.4%)</td><td id="fAPq" class="">3(1.1%)</td><td id="fX:H" class="">15(5.4%)</td><td id="zU{R" class="">43(15.4%)</td><td id="sMDU" class="">215(76.8%)</td></tr><tr id="15b046de-2d56-8159-a2bb-e126d1a9bbfc"><td id="fa~_" class="">I prefer playing games that allow the use of mods over games that don&#x27;t</td><td id="wo`p" class="">10(3.6%)</td><td id="fAPq" class="">15(5.4%)</td><td id="fX:H" class="">51(18.2%)</td><td id="zU{R" class="">47(16.8%)</td><td id="sMDU" class="">157(56.1%)</td></tr><tr id="15b046de-2d56-8113-9d87-d1eb32e178bf"><td id="fa~_" class="">Total</td><td id="wo`p" class="">280</td><td id="fAPq" class=""></td><td id="fX:H" class=""></td><td id="zU{R" class=""></td><td id="sMDU" class=""></td></tr></tbody></table><p id="15b046de-2d56-8148-9936-d1b73aa4a1d4" class="">Table 3. Level of satisfaction of mod users.</p><p id="15b046de-2d56-8014-9f47-ed61f0553a14" class="">
+</p><p id="15b046de-2d56-8090-b591-f39cb541effb" class="">
+</p><p id="15b046de-2d56-8114-85a6-f6507f3372cb" class="">When analyzing the satisfaction levels of mod users, we observe several insights. The vast majority of users (97.5%) agree that mods make Minecraft more enjoyable, with an overwhelming 86.1% strongly agreeing. This indicates a high level of satisfaction with the impact mods have on the game&#x27;s enjoyment. Similarly, 95% of users agree that mods keep them interested in playing Minecraft for a longer time, with 86.1% strongly agreeing. This suggests that mods significantly contribute to sustained engagement with the game.</p><p id="15b046de-2d56-8114-bab0-f3ef9926e0ed" class="">Opinions are more divided regarding the importance of Vanilla+ mods. While a combined 24.3% agree that Vanilla+ mods are more important, a larger proportion, 45.7%, disagree or strongly disagree. This indicates a varied preference for mod types among users. A significant number of users (73.6%) enjoy browsing and trying new mods, highlighting the community&#x27;s interest in exploring new content and innovations.</p><p id="15b046de-2d56-8132-8d3f-d5c74d07db37" class="">Most users (71.1%) are satisfied with the number of mods available, with only a small percentage expressing dissatisfaction. There is strong satisfaction with the quality of mods, with 78.6% of users agreeing or strongly agreeing, and very few expressing dissatisfaction. The majority (88.5%) believe that their mod use style significantly affects the general feel of Minecraft, underscoring the personalized experience that mods provide. An overwhelming 92.2% of users think that mods improve games, reflecting a strong positive perception of mods in general. The majority of users (72.9%) prefer games that support mods, indicating a preference for customizable and extensible gameplay experiences.</p><p id="15b046de-2d56-8076-b761-e6cd0a72b892" class="">
+</p><table id="15b046de-2d56-81e4-bcb7-df5f71ad091f" class="simple-table"><tbody><tr id="15b046de-2d56-8171-a383-c798d98153f9"><td id="`hq`" class=""></td><td id="TeB=" class="">Strongly disagree</td><td id="gm`u" class="">Disagree</td><td id="QbQX" class="">Neutral</td><td id="a`as" class="">Agree</td><td id="VTMt" class="">Strongly Agree</td></tr><tr id="15b046de-2d56-8157-8f81-cd19bed40cb7"><td id="`hq`" class="">Mods make Minecraft more enjoyable</td><td id="TeB=" class="">0</td><td id="gm`u" class="">0</td><td id="QbQX" class="">0</td><td id="a`as" class="">12(18.8%)</td><td id="VTMt" class="">52(81.3%)</td></tr><tr id="15b046de-2d56-81be-8103-f42fbea6ba78"><td id="`hq`" class="">Mods keep me interested in playing Minecraft for a longer time</td><td id="TeB=" class="">0</td><td id="gm`u" class="">0</td><td id="QbQX" class="">2(3.1%)</td><td id="a`as" class="">8(12.5%)</td><td id="VTMt" class="">54(84.4%)</td></tr><tr id="15b046de-2d56-819d-88b0-e0a6d45dfa4c"><td id="`hq`" class="">To me Vanilla+ mods are more important</td><td id="TeB=" class="">11(17.2%)</td><td id="gm`u" class="">10(15.6%)</td><td id="QbQX" class="">21(32.8%)</td><td id="a`as" class="">13(20.3%)</td><td id="VTMt" class="">9(14.1%)</td></tr><tr id="15b046de-2d56-81f4-a8bf-f5c6ae793b5e"><td id="`hq`" class="">I enjoy browsing and trying new mods for Minecraft</td><td id="TeB=" class="">0</td><td id="gm`u" class="">3(4.7%)</td><td id="QbQX" class="">9(14.1%)</td><td id="a`as" class="">14(21.9%)</td><td id="VTMt" class="">38(59.4%)</td></tr><tr id="15b046de-2d56-81ad-8f13-d2b74dd4e2f4"><td id="`hq`" class="">I am satisfied with the number of mods available for Minecraft</td><td id="TeB=" class="">2(3.1%)</td><td id="gm`u" class="">3(4.7%)</td><td id="QbQX" class="">12(18.8%)</td><td id="a`as" class="">13(20.3%)</td><td id="VTMt" class="">34(53.1%)</td></tr><tr id="15b046de-2d56-8192-8f6e-f00044673f55"><td id="`hq`" class="">I am satisfied with the quality of mods available for Minecraft</td><td id="TeB=" class="">0</td><td id="gm`u" class="">5(7.8%)</td><td id="QbQX" class="">15(23.4%)</td><td id="a`as" class="">17(26.6%)</td><td id="VTMt" class="">27(42.2%)</td></tr><tr id="15b046de-2d56-8147-9601-c8d267d15f7d"><td id="`hq`" class="">My mod use style has a huge impact on the general feel of Minecraft</td><td id="TeB=" class="">0</td><td id="gm`u" class="">5(7.8%)</td><td id="QbQX" class="">7(10.9%)</td><td id="a`as" class="">13(20.3%)</td><td id="VTMt" class="">39(60.9%)</td></tr><tr id="15b046de-2d56-819b-94c6-f5a37a9c28c6"><td id="`hq`" class="">I think mods make games better</td><td id="TeB=" class="">0</td><td id="gm`u" class="">1(1.6%)</td><td id="QbQX" class="">8(12.5%)</td><td id="a`as" class="">5(7.8%)</td><td id="VTMt" class="">50(78.1%)</td></tr><tr id="15b046de-2d56-81c0-acfa-ccfb86b7dd15"><td id="`hq`" class="">I prefer playing games that allow the use of mods over games that don&#x27;t</td><td id="TeB=" class="">1(1.6%)</td><td id="gm`u" class="">2(3.1%)</td><td id="QbQX" class="">13(20.3%)</td><td id="a`as" class="">11(17.2%)</td><td id="VTMt" class="">37(57.8%)</td></tr><tr id="15b046de-2d56-8186-b398-caba06a72da2"><td id="`hq`" class="">Total</td><td id="TeB=" class="">64</td><td id="gm`u" class=""></td><td id="QbQX" class=""></td><td id="a`as" class=""></td><td id="VTMt" class=""></td></tr></tbody></table><p id="15b046de-2d56-81e7-8854-e1e36e14d880" class="">Table 4. Level of satisfaction of mod developers.</p><p id="15b046de-2d56-8086-90e2-ca6202adf386" class="">
+</p><p id="15b046de-2d56-8073-a21f-d43989d0edb2" class="">
+</p><p id="15b046de-2d56-818c-8d3a-eb0b478e699e" class="">When examining the satisfaction levels of mod developers, we uncover several insights. A significant majority (100%) of developers agree that mods make Minecraft more enjoyable, with 81.3% strongly agreeing. This reflects a high level of satisfaction with the role of mods in enhancing the game&#x27;s enjoyment. Additionally, 96.9% of developers agree that mods keep them interested in playing Minecraft for a longer time, with 84.4% strongly agreeing. This indicates that mods play a crucial role in maintaining developers&#x27; engagement with the game. Regarding the importance of Vanilla+ mods, opinions are more mixed. While 34.4% of developers agree that Vanilla+ mods are more important, a substantial 32.8% are neutral, and 32.8% disagree or strongly disagree. This suggests a diverse range of preferences for mod types among developers. A majority of developers (81.3%) enjoy browsing and trying new mods, highlighting their interest in exploring new content. Satisfaction with the number of mods available is also high, with 73.4% of developers expressing satisfaction. Similarly, 68.8% of developers are satisfied with the quality of mods available. Most developers (81.2%) agree that their mod use style has a significant impact on the general feel of Minecraft, underscoring the importance of mods in personalizing the gaming experience. An overwhelming 85.9% of developers think that mods make games better, with 78.1% strongly agreeing. Lastly, 75% of developers prefer playing games that allow the use of mods over those that don&#x27;t, reflecting a strong preference for customizable gameplay experiences.</p><p id="15b046de-2d56-8102-a441-c4ae72f09e80" class="">Overall, the survey data indicates a high level of satisfaction among both mod users and mod developers, with strong agreement on the positive impact of mods on enjoyment, engagement, and the overall gaming experience. Mod users and developers alike show significant enthusiasm for exploring new mods and express a preference for games that support modding. While opinions on specific types of mods, such as Vanilla+ mods, vary within both groups, the overarching sentiment is that mods enhance the Minecraft experience. Users and developers appreciate the flexibility and creativity that mods offer, which contributes to their sustained interest and satisfaction with the game. Both mod users and mod developers recognize and value the benefits of mods, making them an integral part of their Minecraft experience. This shared enthusiasm underscores the importance of modding in fostering a vibrant and engaged community within the game.</p><p id="15b046de-2d56-807a-8e21-f8e136f6a179" class="">
+</p><h3 id="15b046de-2d56-81f4-9b79-e9e10c2ec864" class=""><strong>Impact on gameplay and development</strong></h3><p id="15b046de-2d56-811f-bd1a-ce16fca4131e" class="">The survey reveals a direct correlation between the number of mods used and the time spent in the game. Essentially, the more mods users try and utilize, the more hours they tend to invest in their Minecraft experience. This trend underscores the significant impact that mods have on gameplay, enhancing both the depth and duration of engagement. According to the survey, many mod users have experimented with over a thousand mods, illustrating a profound level of interaction with the game. After a thorough analysis, the most frequent responses were selected and compiled into the Table 5, providing a clear snapshot of typical mod usage patterns among players.</p><p id="15b046de-2d56-8092-9386-d9fdb3f77cbc" class="">
+</p><table id="15b046de-2d56-81fc-8bb3-f3e6f8f64bfb" class="simple-table"><tbody><tr id="15b046de-2d56-81d7-b6db-c446a9404ced"><td id="inRh" class="">Number of mods tried</td><td id="@KHc" class="">Description</td><td id="|wKJ" class="">Examples</td></tr><tr id="15b046de-2d56-810a-aa37-ce0db155aa25"><td id="inRh" class="">500</td><td id="@KHc" class="">Frequently mentioned amount</td><td id="|wKJ" class="">500, +500, 500+, 500?</td></tr><tr id="15b046de-2d56-8143-b3dd-e295476970b8"><td id="inRh" class="">1000</td><td id="@KHc" class="">Common figure indicating high engagement</td><td id="|wKJ" class="">1000, 1000+, Around 1000, 1000?</td></tr><tr id="15b046de-2d56-813e-8dfb-d24f8a9fb83b"><td id="inRh" class="">2000</td><td id="@KHc" class="">Extensive number of mods tried</td><td id="|wKJ" class="">Over 2000, 2000, about 2k maybe?</td></tr><tr id="15b046de-2d56-81be-9417-ced6e7d74c19"><td id="inRh" class="">300</td><td id="@KHc" class="">Moderate level of mod engagement</td><td id="|wKJ" class="">300, Around 300, 300-400</td></tr><tr id="15b046de-2d56-8144-899d-de56fa0b94b4"><td id="inRh" class="">Thousands</td><td id="@KHc" class="">Very large number of mods over time</td><td id="|wKJ" class="">Thousands over a decade, Thousands, thousands probably, 10k, over 2000</td></tr></tbody></table><p id="15b046de-2d56-8115-91df-d9ef914c43d2" class="">Table 5. The number of mods tried by mod users.</p><p id="15b046de-2d56-80ce-bd69-f63be5320714" class="">
+</p><p id="15b046de-2d56-809e-95b9-ca342c856826" class="">
+</p><p id="15b046de-2d56-8134-81ec-eec5d7c9c8a5" class="">Table 6 highlights the varying levels of mod usage among players, from moderate to extensive engagement with a wide range of mods.</p><p id="15b046de-2d56-803b-9c3e-e92eae2090d1" class="">
+</p><table id="15b046de-2d56-81a7-9045-fd70b436931b" class="simple-table"><tbody><tr id="15b046de-2d56-814c-bcaf-cb17ff275f30"><td id="?{{P" class="">Number of mods used</td><td id="JVmN" class="">Description</td><td id=":[=s" class="">Examples</td></tr><tr id="15b046de-2d56-81aa-bdb8-f969d205a46f"><td id="?{{P" class="">100</td><td id="JVmN" class="">Frequently mentioned amount</td><td id=":[=s" class="">100, ~100, 100+</td></tr><tr id="15b046de-2d56-8166-8067-dc68f3a1e71b"><td id="?{{P" class="">200</td><td id="JVmN" class="">Common figure indicating moderate usage</td><td id=":[=s" class="">200, 200+, 200-300</td></tr><tr id="15b046de-2d56-8186-8c2a-c073c328320f"><td id="?{{P" class="">300</td><td id="JVmN" class="">Significant amount frequently mentioned</td><td id=":[=s" class="">300, Around 300, 300+</td></tr><tr id="15b046de-2d56-817e-bf07-ede3565d2444"><td id="?{{P" class="">400</td><td id="JVmN" class="">High number indicating extensive usage</td><td id=":[=s" class="">400, Over 400, 400+</td></tr><tr id="15b046de-2d56-8167-ac94-f3553b3580d5"><td id="?{{P" class="">500</td><td id="JVmN" class="">Very high number indicating deep engagement</td><td id=":[=s" class="">500, 100-500</td></tr></tbody></table><p id="15b046de-2d56-8161-811d-fb3a1cbc55dc" class="">Table 6. The number of mods used by mod regular players.</p><p id="15b046de-2d56-805b-bd2f-c7d28db06f23" class="">
+</p><p id="15b046de-2d56-8035-a70a-c47668d42e05" class="">
+</p><p id="15b046de-2d56-8154-9527-e95bb0f3c6b5" class="">Mod developers, on the other hand, were asked about the number of mods they had tried before embarking on creating their own. This question aims to highlight their dedication to the game and their commitment to enhancing it through the creation of additional content. By understanding their prior experience with mods, we can gain insight into the depth of their engagement and the knowledge they bring to their development work. After a thorough analysis, the most frequent responses were selected and compiled into the Table 7, showcasing the typical range of mods that developers experimented with before becoming creators themselves.</p><p id="15b046de-2d56-80f8-9c47-c31aa621c343" class="">
+</p><table id="15b046de-2d56-8117-bc3d-e1f6ed0ac943" class="simple-table"><tbody><tr id="15b046de-2d56-810a-86d6-c9149587d233"><td id="AGh?" class="">Number of mods tried</td><td id="W&gt;PC" class="">Description</td><td id="t;I~" class="">Examples</td></tr><tr id="15b046de-2d56-8118-bd39-d2ef11344aef"><td id="AGh?" class="">100</td><td id="W&gt;PC" class="">Frequently mentioned amount</td><td id="t;I~" class="">100, At least 100</td></tr><tr id="15b046de-2d56-8155-8df1-f99d6cb3a551"><td id="AGh?" class="">500</td><td id="W&gt;PC" class="">Common figure indicating extensive engagement</td><td id="t;I~" class="">500, Well over 500, 500+</td></tr><tr id="15b046de-2d56-81fa-8c2e-f4aa02ebbdae"><td id="AGh?" class="">300</td><td id="W&gt;PC" class="">Another significant amount frequently mentioned</td><td id="t;I~" class="">300, nearly 400</td></tr><tr id="15b046de-2d56-8186-a8b0-cc4d2309c178"><td id="AGh?" class="">1000</td><td id="W&gt;PC" class="">Indicates a very high level of modding experience</td><td id="t;I~" class="">1000, 1000+, Well over 1000</td></tr><tr id="15b046de-2d56-81d1-94d7-d59f818e7599"><td id="AGh?" class="">Thousands</td><td id="W&gt;PC" class="">Represents developers with extensive long-term usage</td><td id="t;I~" class="">Thousands over the years. At least 2-5k. Too many to count. 600+</td></tr></tbody></table><p id="15b046de-2d56-81ab-9ab4-e80ee6827712" class="">Table 7. The number of mods tried by mod developers before starting making their own.</p><p id="15b046de-2d56-8041-80ae-ee9f29d6d1e5" class="">
+</p><p id="15b046de-2d56-80c1-9b3c-d0aa07a43233" class="">
+</p><p id="15b046de-2d56-8168-a331-e5639b490fac" class="">The survey also examined the number of mods actively used by developers. This information provides insight into their ongoing engagement with the modding community and their continuous effort to enhance and diversify their gameplay experience. Table 8 is summarizing the most common responses regarding the number of mods actively used by developers.</p><p id="15b046de-2d56-80d0-91ed-c41f630a5b85" class="">
+</p><table id="15b046de-2d56-81cb-b96a-f286b7b2930f" class="simple-table"><tbody><tr id="15b046de-2d56-81a0-891a-f133af834461"><td id="AAyL" class="">Number of Mods Used</td><td id="guto" class="">Description</td><td id="VWiy" class="">Examples</td></tr><tr id="15b046de-2d56-818c-99fc-c79ebc424723"><td id="AAyL" class="">100</td><td id="guto" class="">Frequently mentioned amount</td><td id="VWiy" class="">100, ~100, 50-100</td></tr><tr id="15b046de-2d56-8170-8cd3-eff492c2fb33"><td id="AAyL" class="">200</td><td id="guto" class="">Common figure indicating extensive usage</td><td id="VWiy" class="">200, 200+, 200-300</td></tr><tr id="15b046de-2d56-81ea-b5ad-f7f06bcddcbf"><td id="AAyL" class="">50</td><td id="guto" class="">Significant amount frequently mentioned</td><td id="VWiy" class="">50, around 50, 50ish</td></tr><tr id="15b046de-2d56-8191-b802-cb77a95884c3"><td id="AAyL" class="">150</td><td id="guto" class="">Moderate to high engagement level</td><td id="VWiy" class="">150, 150 (because modpacks)</td></tr><tr id="15b046de-2d56-81b9-a9a6-f57e72bf0fe4"><td id="AAyL" class="">300-500</td><td id="guto" class="">High number indicating substantial usage</td><td id="VWiy" class="">281, 300, Custom modpack with around 530</td></tr></tbody></table><p id="15b046de-2d56-81c5-ac1c-e2f21343bad8" class="">Table 8. The number of mods used by mod developers.</p><p id="15b046de-2d56-8052-9cf4-effffc7e5a9f" class="">
+</p><p id="15b046de-2d56-808e-bc5e-c657a4f119ad" class="">
+</p><p id="15b046de-2d56-8105-846b-d2f908ebd103" class="">As we can see from tables above, the journey to becoming a mod developer in Minecraft required varying levels of interest and time investment. For some, trying between 100 and 500 mode represents a relatively swift transition into the modding scene, suggesting that these individuals quickly developed passion for creating their own content. In contrast, whose who have tried 1000 or more mods likely spent a substantial amount of time exploring a vast array of modifications before deciding to develop their own. This could indicate a prolonged engagement with the game and a deep familiarity with its modding ecosystem. Additionally, it suggests that these individuals played for a long time, experimented with numerous mods, but only recently started developing their own mod due to the increased ease and accessibility of modern modding tools.</p><p id="15b046de-2d56-81fd-867b-db4b2b955cdc" class="">One player shared their experience, shedding light on the challenges and rewards of starting out in mod development:</p><p id="15b046de-2d56-8132-ace3-c2b97e94c58e" class="">“I recently (two weeks ago) started making my mod and it&#x27;s both easier and harder than you likely think. On one side I am amazed that it is quite easy and simple, but on the other side it does involve quite a few steps to memorize and the modloader I use (forge/neoforge) is quite lacking in documentation. But I have quite a bit of java programming experience and general programming experience so a solid tutorial (followed McJty&#x27;s tutorial) and a few mod github repositories have helped me understand modding and structuring my mod better. So that&#x27;s my recommendation tbh. And the forge/neoforge discord is quite helpful. Before you actually start programming it might be helpful to read the documentation or tutorial first so you get the idea of how to make a Minecraft mod”.</p><p id="15b046de-2d56-811f-a086-c6341eaa2902" class="">Estimating the exact time spent in Minecraft is challenging due to the lack of precise tracking tools. However, it is possible to gather approximate values that reflect the time both mod developers and mode users have spent in the game. Participants were asked two questions regarding their gameplay: one focused on the hours spent in Vanilla Minecraft without mods, and another on the total hours played including mods.</p><p id="15b046de-2d56-81b8-a16f-e2d08c8aecfa" class="">Interestingly, the results for the number of hours played in Vanilla Minecraft were almost identical for both groups (see Table 9). This similarity is quite remarkable. One notable difference was in the lower range of hours played: mod developers typically reported around 100 hours, whereas mod users reported around 500 hours.</p><p id="15b046de-2d56-80f3-a86c-f4e72027537c" class="">
+</p><table id="15b046de-2d56-81f7-8bc6-ea3edca4c45c" class="simple-table"><tbody><tr id="15b046de-2d56-816e-8dc4-f7edd11705c7"><td id=";rmV" class="">Number of hours played</td><td id="kHr^" class="">Description</td><td id="JkJs" class="">Examples</td></tr><tr id="15b046de-2d56-81e7-a806-faa948c7bb31"><td id=";rmV" class="">1000</td><td id="kHr^" class="">Frequently mentioned amount</td><td id="JkJs" class="">1000, ~1000, 1000+</td></tr><tr id="15b046de-2d56-81e9-82fc-e55a952edea3"><td id=";rmV" class="">2000</td><td id="kHr^" class="">Common figure indicating significant engagement</td><td id="JkJs" class="">2000, 2000+, Over 2000</td></tr><tr id="15b046de-2d56-817c-8cd1-e959a0b59b0e"><td id=";rmV" class="">100-500</td><td id="kHr^" class="">Moderate number of hours frequently mentioned</td><td id="JkJs" class="">500, ~500, 500+</td></tr><tr id="15b046de-2d56-8158-bb18-f579ac238477"><td id=";rmV" class="">3000</td><td id="kHr^" class="">Extensive amount indicating deep, long-term engagement</td><td id="JkJs" class="">3000, 3000+, 3000-4000h</td></tr><tr id="15b046de-2d56-81be-a590-e63eda146b7a"><td id=";rmV" class="">10000</td><td id="kHr^" class="">Very high number indicating profound long-term engagement</td><td id="JkJs" class="">10000, &gt;10000, at least 10k, Way too many thousands to count</td></tr></tbody></table><p id="15b046de-2d56-81b2-845c-c96d8347216c" class="">Table 9. Time played vanilla Minecraft (hours)</p><p id="15b046de-2d56-8024-99cc-c689d0ee3167" class="">
+</p><p id="15b046de-2d56-8051-a80b-c045c51192b9" class="">
+</p><p id="15b046de-2d56-81fe-93de-d83c12b25387" class="">For the second question, the number of hours played with mods, yet again we can distinguish a very similar result with slight increase for mod developers.</p><p id="15b046de-2d56-81c6-9be6-ecf694a1cf25" class="">Here are the top results for both mod users and mod developers about hours played with mods.</p><p id="15b046de-2d56-808f-b709-e4ccabf48a59" class="">
+</p><table id="15b046de-2d56-817e-8a3e-e6f21e4f3948" class="simple-table"><tbody><tr id="15b046de-2d56-815f-8b6a-dc6a0a0c0611"><td id="ywjS" class="">Number of hours played</td><td id="g|e@" class="">Description</td><td id="&lt;]:m" class="">Examples</td></tr><tr id="15b046de-2d56-8142-892e-f4be6bbc4b2c"><td id="ywjS" class="">1000</td><td id="g|e@" class="">Frequently mentioned amount</td><td id="&lt;]:m" class="">1000, ~1000, 1000+</td></tr><tr id="15b046de-2d56-8190-bb90-c359e83a2a34"><td id="ywjS" class="">2000</td><td id="g|e@" class="">Common figure indicating significant engagement</td><td id="&lt;]:m" class="">2000, 2000+, Over 2000</td></tr><tr id="15b046de-2d56-81d8-8ae8-de3e1ebe71a1"><td id="ywjS" class="">3000</td><td id="g|e@" class="">Extensive amount indicating deep, long-term engagement</td><td id="&lt;]:m" class="">3000, 3000+, 3000/4000ish</td></tr><tr id="15b046de-2d56-81eb-85a5-fa6e7c7e6ed5"><td id="ywjS" class="">5000</td><td id="g|e@" class="">Very high number indicating profound long-term engagement</td><td id="&lt;]:m" class="">5000, 5000+, 5000?</td></tr><tr id="15b046de-2d56-8119-9acd-d2823c700b72"><td id="ywjS" class="">10000</td><td id="g|e@" class="">Extremely high number indicating dedicated long-term engagement</td><td id="&lt;]:m" class="">10000, &gt;10000, 10000s, Way too many thousands to count</td></tr></tbody></table><p id="15b046de-2d56-818d-a064-c2be344fca74" class="">Table 10. The number of hours mod users played with mods.</p><p id="15b046de-2d56-8089-914f-e1771f0eef52" class="">
+</p><p id="15b046de-2d56-8007-ad2c-d7a0852eb1aa" class="">
+</p><table id="15b046de-2d56-817a-8219-f301939379c5" class="simple-table"><tbody><tr id="15b046de-2d56-8193-99dc-d6dbdf501845"><td id="HQsT" class="">Number of hours played</td><td id="MKsb" class="">Description</td><td id="nA]D" class="">Examples</td></tr><tr id="15b046de-2d56-819b-8c8c-c6d2add64cd8"><td id="HQsT" class="">1000</td><td id="MKsb" class="">Frequently mentioned amount</td><td id="nA]D" class="">1000, ~1000, 1000+</td></tr><tr id="15b046de-2d56-8142-a76f-eb36bd6ec359"><td id="HQsT" class="">3000</td><td id="MKsb" class="">Common figure indicating significant engagement</td><td id="nA]D" class="">3000, 3000+, 3000/4000</td></tr><tr id="15b046de-2d56-817d-9cac-e77ddc4f74ae"><td id="HQsT" class="">5000</td><td id="MKsb" class="">Extensive amount indicating deep, long-term engagement</td><td id="nA]D" class="">5000, 5000+, Around 5000</td></tr><tr id="15b046de-2d56-81c4-a60a-dd9adc039ad0"><td id="HQsT" class="">8000</td><td id="MKsb" class="">Very high number indicating profound long-term engagement</td><td id="nA]D" class="">8000, 8000+, Over 8000</td></tr><tr id="15b046de-2d56-815d-b604-f6440a24d72f"><td id="HQsT" class="">10000</td><td id="MKsb" class="">Extremely high number indicating dedicated long-term engagement</td><td id="nA]D" class="">10000, &gt;10000, 10000+</td></tr></tbody></table><p id="15b046de-2d56-819a-b8d4-efac2b98c5c7" class="">Table 11. The number of hours mod developers played with mods.</p><p id="15b046de-2d56-804d-9dbe-c9a8950b05ab" class="">
+</p><p id="15b046de-2d56-8079-960c-c34610aa599b" class="">
+</p><p id="15b046de-2d56-819c-8dfb-e7e39eb296a8" class="">The levels of engagement between mod users and mod developers show some distinct patterns. Mod users often report common engagement levels around 2000 hours, reflecting a significant but moderate amount of playtime. Mod developers, however, show higher thresholds for sustained engagement, frequently reporting 3000 hours as a significant marker. This indicates that developers tend to have deeper, long-term engagement. Additionally, very high engagement levels, such as 8000 hours, are uniquely highlighted among mod developers. This suggests that developers invest more time due to the complex nature of mod creation. Overall, mod developers report higher frequent engagement levels, indicating a more prolonged commitment compared to users.</p><p id="15b046de-2d56-81bb-987b-caa639727c7b" class="">The differences in hours played can be attributed to several factors. Mod developers often spend more time due to the nature of mod development, which involves learning, creating, testing, and refining mods. The transition from user to creator usually occurs at a higher engagement threshold, indicating the developer&#x27;s in-depth experience and commitment to enhancing the game. The complexity of mod development demands a significant time investment, as developers need to master various tools, understand coding, and continuously update their mods for compatibility with new game versions and other mods. This highlights the dedication and passion that developers have for enriching the Minecraft experience, leading to their higher reported hours.</p><p id="15b046de-2d56-81b2-8a9b-ca86d6034ca5" class="">When exploring the gameplay styles of both groups, we discovered notable differences in their approaches to Minecraft. Our findings reveal that mod users tend to lean towards a more hardcore gaming experience, with 61.1% identifying as hardcore players and 38.9% as casual gamers. This suggests that mod users are deeply invested in their gameplay, seeking challenging and immersive experiences that test their skills and creativity.</p><p id="15b046de-2d56-8198-9a46-c1192a8bd8af" class="">In contrast, mod developers show a preference for a more casual gaming style, with 68.8% identifying as casual gamers and only 31.2% as hardcore players. This indicates that while developers enjoy creating and refining mods, their gameplay approach tends to be more relaxed and less intense. They might use Minecraft as a way to unwind and experiment with their creations, balancing their technical work with casual, enjoyable gameplay.</p><p id="15b046de-2d56-8169-a269-eea7cb20c346" class="">When analyzing the time spent weekly on Minecraft, there are notable differences between users and mod developers. For users, the top five answers for weekly playtime are 20, 30, 10, 40, and 25 hours. This indicates a broad range of engagement, with many users dedicating significant time to the game each week.</p><p id="15b046de-2d56-81de-a450-eff9aec78359" class="">In contrast, mod developers reported their top five weekly playtime hours as 20, 10, 30, 5, and 2 hours. It&#x27;s important to note that a key requirement for developers was to exclude the time they spend &quot;play testing&quot; their mods within the development environment. As a result, some developers even reported zero playtime, meaning they primarily interact with Minecraft through the development environment rather than casual play.</p><p id="15b046de-2d56-81e4-8240-c9976f2101bd" class="">These differences highlight how mod developers&#x27; engagement with Minecraft is heavily focused on the creative and technical aspects of modding, rather than traditional gameplay. While users immerse themselves in the game for entertainment and relaxation, developers often dedicate their time to crafting and refining mods, which involves a different type of interaction with the game.</p><p id="15b046de-2d56-809c-bc6b-c44780a056cc" class="">
+</p><table id="15b046de-2d56-81c5-ad0f-e291ab680e3f" class="simple-table"><tbody><tr id="15b046de-2d56-81a2-8975-f4ea53070405"><td id="WYui" class="">Reason</td><td id="gDlf" class="">Count</td></tr><tr id="15b046de-2d56-8143-9200-f8c2b28396de"><td id="WYui" class="">Relaxation</td><td id="gDlf" class="">42</td></tr><tr id="15b046de-2d56-81d0-a611-f1d6437012f9"><td id="WYui" class="">Fun</td><td id="gDlf" class="">25</td></tr><tr id="15b046de-2d56-81a9-96a2-ed826c1f6ec0"><td id="WYui" class="">Killing time</td><td id="gDlf" class="">19</td></tr><tr id="15b046de-2d56-8122-8219-e327d303636a"><td id="WYui" class="">Enjoying a good story</td><td id="gDlf" class="">11</td></tr><tr id="15b046de-2d56-8155-8feb-ccb930138d30"><td id="WYui" class="">Challenge</td><td id="gDlf" class="">11</td></tr><tr id="15b046de-2d56-813f-9caf-e733c3048e7d"><td id="WYui" class="">Entertainment</td><td id="gDlf" class="">7</td></tr><tr id="15b046de-2d56-818a-ab33-efa22692da3c"><td id="WYui" class="">Distraction</td><td id="gDlf" class="">6</td></tr><tr id="15b046de-2d56-81ee-aa66-ecec95f89dee"><td id="WYui" class="">Social interaction</td><td id="gDlf" class="">5</td></tr><tr id="15b046de-2d56-81c6-a897-c5ce3454ca82"><td id="WYui" class="">Creativity</td><td id="gDlf" class="">5</td></tr><tr id="15b046de-2d56-81f1-9ea4-d1aa7eb4dc4a"><td id="WYui" class="">Immersion</td><td id="gDlf" class="">5</td></tr></tbody></table><p id="15b046de-2d56-8140-b262-c1095245764b" class="">Table 12. The most frequent answers provided by mod users.</p><p id="15b046de-2d56-8039-912d-e7da2662c213" class="">
+</p><p id="15b046de-2d56-8079-aea9-e290614d7857" class="">
+</p><p id="15b046de-2d56-81f3-a251-cb04c8bd80f6" class="">When exploring the reasons, several opinions were shared by players:</p><p id="15b046de-2d56-8177-a020-e6064590bf31" class="">“Having fun, and in the case of my Minecraft modpacks, I also like to design stuff - even if only trying to enforce a certain progression or playstyle.”</p><p id="15b046de-2d56-81c7-bf08-d0f066838c26" class="">“Creativity - Minecraft is all about creativity, learning new stuff and trying to apply it somewhere. Combining many different things together is what kept me invested when I was a kid.”</p><p id="15b046de-2d56-8189-8da2-d5be3af1d3eb" class="">In contrast, mod when asked the same question, mod developers shared this information.</p><p id="15b046de-2d56-809d-b77f-f72d18dd24a1" class="">
+</p><table id="15b046de-2d56-81eb-b10d-d250f41476d7" class="simple-table"><tbody><tr id="15b046de-2d56-8123-893c-f1a19c2d5a6f"><td id="ZO{M" class="">Reason</td><td id="gsmm" class="">Count</td><td id="ZIyV" class="">Example responses</td></tr><tr id="15b046de-2d56-812b-8823-cb315df3a62e"><td id="ZO{M" class="">Relaxation</td><td id="gsmm" class="">19</td><td id="ZIyV" class="">&quot;Relaxation&quot;, &quot;Relaxing my brain&quot;, &quot;Relaxation and enjoyment&quot;</td></tr><tr id="15b046de-2d56-812f-9697-e127654f9da2"><td id="ZO{M" class="">Killing Time</td><td id="gsmm" class="">8</td><td id="ZIyV" class="">&quot;Killing time&quot;, &quot;Killing time and relaxing&quot;, &quot;Time to relax&quot;</td></tr><tr id="15b046de-2d56-8105-934a-ec825737099f"><td id="ZO{M" class="">Having Fun</td><td id="gsmm" class="">7</td><td id="ZIyV" class="">&quot;Having fun&quot;, &quot;Fun&quot;, &quot;Having a fun time&quot;</td></tr><tr id="15b046de-2d56-81ef-aa1a-f554a9ebf21e"><td id="ZO{M" class="">Challenge</td><td id="gsmm" class="">7</td><td id="ZIyV" class="">&quot;A challenge&quot;, &quot;Technical challenge&quot;, &quot;Relaxation, challenge&quot;</td></tr><tr id="15b046de-2d56-8120-9025-f4cc5f0fb2a4"><td id="ZO{M" class="">Good Story</td><td id="gsmm" class="">6</td><td id="ZIyV" class="">&quot;Good story and good music&quot;, &quot;Good storytelling or a free world&quot;</td></tr><tr id="15b046de-2d56-81c7-90f8-dcbe4016e6e4"><td id="ZO{M" class="">Creativity</td><td id="gsmm" class="">4</td><td id="ZIyV" class="">&quot;Exercise creativity&quot;, &quot;Creativity possibilities&quot;</td></tr></tbody></table><p id="15b046de-2d56-81bb-a7d8-fcc3ce2703e2" class="">Table 13. The most frequent answers provided by mod developers.</p><p id="15b046de-2d56-80c4-afdd-cd6f146e75db" class="">
+</p><p id="15b046de-2d56-804f-b082-fa9eb62ddc08" class="">
+</p><p id="15b046de-2d56-81a3-a559-c1f788355427" class="">Additionally, more personalized answers were provided:</p><p id="15b046de-2d56-8133-baf5-d34796cf422a" class="">&quot;Having fun, relaxing, calming down and to get my mind off coding. Because 24/7 coding is unhealthy.&quot;</p><p id="15b046de-2d56-8162-b36e-f3f0e27eaff5" class="">&quot;For single session: relaxing (mining and crafting), solving puzzles (automation, magic), occasionally combat/exploration/challenges (dungeons and bosses).&quot;</p><p id="15b046de-2d56-812e-aefb-d02353c9ab16" class="">&quot;Enjoying time, creating something to be proud of, mental challenges.&quot;</p><p id="15b046de-2d56-81b6-86ac-ea6cfc288d04" class="">&quot;Intellectual stimulation, create and do my own thing, escape reality.&quot;</p><p id="15b046de-2d56-818a-a45b-f1218cb34d60" class="">&quot;Problem solving, relaxation.&quot;</p><p id="15b046de-2d56-818a-9b8e-c59041902bb0" class="">&quot;Relaxation, entertainment, some challenge, artistic expression.&quot;</p><p id="15b046de-2d56-810d-a5e9-cb283fa0b3c7" class="">The primary motivations for playing Minecraft differ between mod users and mod developers, reflecting their distinct relationships with the game. While both suggests that they value relaxation and fun, mod users mention relaxation significantly more often. This suggests that they primarily engage with Minecraft to unwind and enjoy casual gameplay. For mod developers, relaxation is also important, but their reasons are more diverse, including aspects like intellectual and technical challenges.</p><p id="15b046de-2d56-81be-a7b7-fdacb07aa709" class="">Mod users frequently cite killing time as a major reason, using Minecraft as a flexible and enjoyable pastime. In contrast, mod developers, although they also mention killing time, tend to balance this with their creative and technical pursuits within the game. This difference highlights that developers often have a more substantial time commitment, blending play with the demands of mod creation.</p><p id="15b046de-2d56-8109-ad60-d4c0a7ac31db" class="">Fun is a key motivation for both groups, but it&#x27;s mentioned more by users, indicating a more straightforward enjoyment of the game. Developers find fun in the creative and technical aspects of modding, suggesting a more complex engagement with the game. Challenges are another significant reason for both groups, but for developers, these challenges are often tied to the technical and creative demands of modding, adding an extra layer of fulfillment.</p><p id="15b046de-2d56-8138-83b5-da92b4939179" class="">Good storytelling and immersion are appreciated by both users and developers, but users tend to emphasize these elements more. This reflects a preference for narrative experiences among users.</p><p id="15b046de-2d56-819c-9d1e-c13728c688d8" class="">Creativity is important to both groups, but it&#x27;s particularly significant for developers. The act of creating and refining mods requires a high level of creativity and problem-solving, which developers find fulfilling. This creative engagement differentiates their experience from users, who primarily enjoy the creative freedom within the game&#x27;s existing framework.</p><p id="15b046de-2d56-815a-bd31-da2acc963bcc" class="">Overall, the differences between mod users and developers can be attributed to their distinct interactions with Minecraft. Users seek casual enjoyment, relaxation, and storytelling, while developers are motivated by the intellectual and creative challenges of modding. This multifaceted engagement results in developers having a deeper, more prolonged commitment to the game, driven by their passion for creating new content and enhancing the Minecraft experience.</p><p id="15b046de-2d56-810a-8147-fff576a91452" class="">Considering the sample sizes ~280 users versus ~64 developers - the proportion of responses highlights these trends more distinctly. The larger number of user responses amplifies the emphasis on relaxation and fun, while the smaller developer sample shows a concentrated variety of motivations, reflecting their unique, intricate engagement with Minecraft.</p><p id="15b046de-2d56-8074-bcec-dbdaa092cb73" class="">
+</p><h3 id="15b046de-2d56-8112-b30e-cb59fcd2f76a" class=""><strong>Impact on gameplay and development</strong></h3><p id="15b046de-2d56-8106-a738-e3f4653a5947" class="">Mods have a transformative impact on the gameplay experience in Minecraft, providing players with the ability to tailor the game to their preferences and significantly enhancing its depth and complexity. These modifications range from adding new mechanics and industries to overhauling the game’s core system. For instance, IndustrialCraft (CurseForge, Industrial Craft) introduces electricity into Minecraft, bringing a new layer of technological advancement. Players can build complex machinery, automate processes, and generate power, adding a modern industrial aspect to the game. Additionally, mods like GregTech (GregTech, GregTech) add a lot more on top of that, which makes gameplay more focused, requiring more time investment, while offering a rewarding feeling. Some other mods like TerraFirmaCraft (CurseForge, TerraFirmaCraft) completely overhauls the survival mechanics of Minecraft. It transforms the game into a more realistic survival simulation, with changes to the progression of tools, the environment, and resource gathering.</p><p id="15b046de-2d56-81eb-93f4-d9dde02458d6" class="">While mods greatly enhance the gameplay experience, they also introduce several challenges for both users and developers. Feedback from the survey highlighted a range of issues that mod users and mod developers encounter while engaging with mods.</p><p id="15b046de-2d56-81d5-872c-f9ac07fdf500" class="">The Minecraft modding community faces several significant challenges that impact both gameplay and development. One of the most prominent issues is compatibility. Compatibility with other mods and different versions is crucial for a seamless gaming experience. However, when mods are incompatible, they can cause game crashes, bugs, and other technical problems. This leads to frustration among users, who find it challenging to run multiple popular mods together due to conflicts. Developers, in turn, face the challenge of ensuring their mods are compatible with others, requiring extensive testing and debugging. This aspect underscores the importance of collaboration and communication within the modding community, as developers work together to resolve conflicts and ensure a smooth user experience. Another common issue is the constant updating of Minecraft versions, which can render mods obsolete or incompatible with newer versions. Users frequently express frustration with mods that don&#x27;t update to the latest game versions quickly or at all. This rapid update cycle forces developers to constantly update their mods, which can be time-consuming and detract from their ability to create new content. The lack of backward compatibility between game versions further complicates the issue, fragmenting the community as users cluster around different game versions that support their favorite mods. The existence of multiple mod loaders, such as Forge, Fabric, and NeoForge, has created a fragmented modding landscape. Users and developers cited the challenges of mods being available on different mod loaders and the lack of compatibility between them. This fragmentation makes it difficult for users to create cohesive modpacks and forces developers to maintain multiple versions of their mods. Efforts to bridge these divides, such as the creation of Sinytra Connector (CurseForge, Sinytra Connector), offer some relief but have not completely resolved the issue. Documentation and the complexity of modding tools also present significant barriers for mod developers. Many respondents noted the steep learning curve and inadequate resources for learning how to create and maintain mods. This can discourage new developers from entering the modding community and limit the potential for innovation and creativity. Improving the accessibility and quality of documentation and modding tools would help to lower these barriers and support the development of high-quality mods. Performance issues are another major challenge. Mods can significantly impact the performance of the game, causing high resource usage, slow load times, and other performance-related problems. These issues can detract from the overall enjoyment of the game and make it difficult for players with lower-end machines to use mods effectively. Community dynamics also play a role in the challenges faced by modders. Issues such as mod drama, disputes among modders, and hostility from users towards developers can create a toxic environment that disrupts development and collaboration. The sense of entitlement from some users and the internal conflicts among developers can lead to abandoned mods and hinder the overall progress of the modding community. Addressing these interpersonal challenges and fostering a more supportive and cooperative community atmosphere is crucial for the health of the modding ecosystem. Innovation and creativity in modding are also affected by standardization and the dominance of vanilla+ mods. Some users feel that modern mods lack the innovation and uniqueness of earlier mods, with many mods following similar patterns and not experimenting with new styles. Encouraging diversity and creativity in modding can help to keep the community vibrant and dynamic. Mod quality and maintenance are ongoing concerns. Low-quality mods, abandoned projects, and the lack of updates for certain mods can affect the user experience. Ensuring that mods are well-maintained and updated regularly can help to maintain a high standard of quality within the modding community. Monetization and access issues, such as paywall mods and monetization practices on platforms like CurseForge, also present challenges. Ensuring fair and transparent monetization practices can help to support developers and maintain trust within the community. Tool complexity is another barrier for mod developers. The complexity of modding tools and the steep learning curve can make it difficult for new developers to get started. Simplifying these tools and providing better documentation can help to make modding more accessible and encourage more people to participate. Despite these challenges, the modding community continues to thrive, driven by the creativity and dedication of its members. Addressing the challenges of compatibility, version fragmentation, multiple mod loaders, documentation, performance, community dynamics, innovation, mod quality, monetization, and tool complexity can further strengthen the modding community, ensuring that it remains a vibrant and dynamic part of the Minecraft ecosystem.</p><p id="15b046de-2d56-80d1-9465-c99abbeb6866" class="">
+</p><table id="15b046de-2d56-8188-9ff9-e617051904ea" class="simple-table"><tbody><tr id="15b046de-2d56-8113-88a1-ca51e99a1353"><td id="Vh&lt;p" class="">Theme</td><td id="THAV" class="">Mentions</td><td id="eEWS" class="">Description</td></tr><tr id="15b046de-2d56-8189-9107-e3f45312de1f"><td id="Vh&lt;p" class="">Version Updates</td><td id="THAV" class="">42</td><td id="eEWS" class="">Frequent Minecraft updates that render mods obsolete or incompatible with newer versions, forcing developers to continuously update their mods.</td></tr><tr id="15b046de-2d56-8166-803a-cf119aa41ca8"><td id="Vh&lt;p" class="">Mod Loaders</td><td id="THAV" class="">38</td><td id="eEWS" class="">Fragmentation caused by the existence of multiple mod loaders (e.g., Forge, Fabric, NeoForge), leading to compatibility problems.</td></tr><tr id="15b046de-2d56-81d4-a3ac-f9ff77f0a2c5"><td id="Vh&lt;p" class="">Compatibility Issues</td><td id="THAV" class="">36</td><td id="eEWS" class="">Challenges with running multiple mods together without conflicts, including issues with different versions and mod loaders.</td></tr><tr id="15b046de-2d56-8189-937e-e6cd62226026"><td id="Vh&lt;p" class="">Documentation</td><td id="THAV" class="">29</td><td id="eEWS" class="">Lack of comprehensive documentation and resources for learning how to create and maintain mods, creating a steep learning curve.</td></tr><tr id="15b046de-2d56-81a0-bd36-ef0b99f014e6"><td id="Vh&lt;p" class="">Performance</td><td id="THAV" class="">23</td><td id="eEWS" class="">Performance-related issues such as high resource usage, slow load times, and other technical problems impacting gameplay.</td></tr><tr id="15b046de-2d56-8132-8f88-c147005e04f7"><td id="Vh&lt;p" class="">Mod Quality and Maintenance</td><td id="THAV" class="">18</td><td id="eEWS" class="">Issues related to low-quality mods, abandoned projects, and the lack of regular updates for certain mods.</td></tr><tr id="15b046de-2d56-8174-afad-cae127a6dd7d"><td id="Vh&lt;p" class="">Community Dynamics</td><td id="THAV" class="">12</td><td id="eEWS" class="">Interpersonal issues within the community, such as mod drama, disputes among modders, and hostility from users towards developers.</td></tr><tr id="15b046de-2d56-81a6-ab3e-df912573414d"><td id="Vh&lt;p" class="">Innovation and Creativity</td><td id="THAV" class="">10</td><td id="eEWS" class="">Concerns about the lack of innovation and uniqueness in modern mods, with many following similar patterns.</td></tr><tr id="15b046de-2d56-8195-9d42-e8cf197ab3a5"><td id="Vh&lt;p" class="">Monetization and Access</td><td id="THAV" class="">6</td><td id="eEWS" class="">Challenges related to monetization practices, such as paywall mods and issues on platforms like Curseforge.</td></tr><tr id="15b046de-2d56-81a3-8ae8-df674eec5b34"><td id="Vh&lt;p" class="">Tool Complexity</td><td id="THAV" class="">4</td><td id="eEWS" class="">Barriers created by the complexity of modding tools and the need for better documentation and support for new developers.</td></tr></tbody></table><p id="15b046de-2d56-817d-aae1-f9d0997bab6d" class="">Table 14. Common issues of modding. Mod users’ perspective.</p><p id="15b046de-2d56-8015-affd-fcb71bd409b4" class="">
+</p><p id="15b046de-2d56-8191-a489-f62babf4bdc4" class="">Mod developers in the Minecraft community on the other hand face several unique challenges that impact their ability to create, maintain, and update mods effectively. One of the most prominent issues is version chasing, which refers to the constant need to update mods to keep up with new Minecraft versions. This frequent update cycle often breaks existing mods and hinders creativity, as developers spend more time making their mods compatible with the latest game version rather than polishing or creating new features. Developers suggest that a long-term support (LTS) system could help by allowing mods to stay on a version for several minor updates before moving to the next major version. Another significant challenge is mod loader fragmentation. The division between multiple mod loaders, such as Forge, Fabric, and NeoForge, complicates the development process. Maintaining compatibility across different mod loaders is time-consuming and often requires developers to create and manage multiple versions of their mods. This fragmentation creates barriers for both developers and users, making it difficult to create cohesive modpacks and hindering the overall modding experience. Community dynamics also present challenges, with drama and disputes among mod developers leading to incompatibility and abandoned mods. These conflicts can create a toxic environment that deters new developers from entering the scene and disrupts collaborative projects. Additionally, community conflicts over ideological and political issues can distract from the main goal of modding, which is to enhance and expand the Minecraft experience. Documentation and tools are another major concern. Many developers noted the lack of comprehensive documentation and the complexity of modding tools, which create a steep learning curve for new developers. Without adequate resources, it becomes challenging to learn how to create and maintain mods effectively. This lack of documentation and the difficulty of using modding tools can discourage new developers and limit innovation within the community. Compatibility issues are a recurring theme, with many developers highlighting the difficulty of ensuring their mods are compatible with other mods and different versions of the game. This challenge is compounded by the existence of closed source mods and the fragmentation caused by different mod loaders. Ensuring smooth integration and resolving compatibility issues require extensive testing and collaboration among developers. User interaction poses its own set of challenges. Developers often face demands and expectations from users who may not understand the complexities of modding. Issues such as poor bug reports, entitlement, and hostility from users can create a difficult environment for developers. These interactions can be discouraging and add to the workload of maintaining and updating mods. Quality and maintenance are ongoing concerns for mod developers. The proliferation of low-quality mods and the abandonment of projects can negatively impact the user experience. Frequent updates and the lack of standardization contribute to these issues, making it difficult to maintain a high standard of quality within the modding community. Mojang&#x27;s influence on the modding community is also significant. Frequent updates and internal changes by Mojang can disrupt mod development and render mods obsolete. The lack of official support and acknowledgment for modding frameworks further complicates the development process. Developers must constantly adapt to changes in the game, which can be both time-consuming and challenging.</p><p id="15b046de-2d56-8045-923f-ca765ebf08af" class="">
+</p><table id="15b046de-2d56-81be-bdc8-f68cd6e9f043" class="simple-table"><tbody><tr id="15b046de-2d56-817d-8677-d2dc52b85d7d"><td id=";cKC" class="">Theme</td><td id="OB=X" class="">Mentions</td><td id="INO&lt;" class="">Description</td></tr><tr id="15b046de-2d56-81bc-a750-c6a70937609b"><td id=";cKC" class="">Mod Loader Fragmentation</td><td id="OB=X" class="">26</td><td id="INO&lt;" class="">The division between multiple mod loaders (e.g., Forge, Fabric) and the difficulty in maintaining compatibility across them.</td></tr><tr id="15b046de-2d56-81ce-a6ee-e15a2f306892"><td id=";cKC" class="">Compatibility Issues</td><td id="OB=X" class="">18</td><td id="INO&lt;" class="">Incompatibility between mods and different game versions, and the challenge of integrating closed source mods.</td></tr><tr id="15b046de-2d56-81ff-8fc4-f89406acf9a7"><td id=";cKC" class="">Version Chasing</td><td id="OB=X" class="">21</td><td id="INO&lt;" class="">The constant need to update mods to keep up with new Minecraft versions, breaking existing mods and hindering creativity.</td></tr><tr id="15b046de-2d56-81a9-a209-c58f3940e54b"><td id=";cKC" class="">Documentation and Tools</td><td id="OB=X" class="">14</td><td id="INO&lt;" class="">Lack of comprehensive documentation and the complexity of modding tools, making it difficult for developers to start and maintain projects.</td></tr><tr id="15b046de-2d56-8153-ae0e-d5f3b88c8347"><td id=";cKC" class="">Mojang&#x27;s Influence</td><td id="OB=X" class="">12</td><td id="INO&lt;" class="">The impact of Mojang&#x27;s frequent updates and internal changes, and the lack of official support for modding frameworks.</td></tr><tr id="15b046de-2d56-8121-8a50-f5564359c316"><td id=";cKC" class="">Community Dynamics</td><td id="OB=X" class="">15</td><td id="INO&lt;" class="">Drama, disputes, and community conflicts that lead to incompatibility and abandoned mods, deterring new developers.</td></tr><tr id="15b046de-2d56-81af-aa0c-e0fc5b9877e4"><td id=";cKC" class="">Quality and Maintenance</td><td id="OB=X" class="">10</td><td id="INO&lt;" class="">Low-quality mods, abandoned projects, and the impact of frequent updates on mod quality.</td></tr><tr id="15b046de-2d56-81b1-a305-f478b4eee15c"><td id=";cKC" class="">User Interaction</td><td id="OB=X" class="">9</td><td id="INO&lt;" class="">The demands and expectations from users, including the inability to write proper bug reports and hostility towards developers.</td></tr></tbody></table><p id="15b046de-2d56-8124-b881-ff3533c59fb0" class="">Table 15. Common issues of modding. Mod Developers’ perspective.</p><p id="15b046de-2d56-8033-b1c1-e884560c9364" class="">
+</p><p id="15b046de-2d56-81b7-b8bc-fd21449cf3d0" class="">Both users and mod developers in the Minecraft modding community consistently highlight three critical issues: version updates, mod loader fragmentation, and compatibility issues. However, there is a notable difference in how these concerns are prioritized between the two groups. For users, the most pressing issue is version updates. The constant updates to Minecraft frequently render mods obsolete or incompatible with newer versions. This issue forces developers to continuously update their mods, leading to frustration among users who may find their favorite mods unusable after a game update. The rapid update cycle of Minecraft creates a fragmented community where players cluster around different versions that support their preferred mods. In contrast, for mod developers, the primary concern is mod loader fragmentation. The existence of multiple mod loaders such as Forge, Fabric, and NeoForge adds significant complexity to the development process. Developers often have to create and maintain multiple versions of their mods to ensure playability on different loaders. This fragmentation demands additional time and resources, complicating the integration process and creating barriers for both developers and users. While both groups are concerned about compatibility issues, which are challenges with running multiple mods together without conflicts, the emphasis varies slightly. Developers are particularly impacted by the technical difficulties of ensuring that their mods work seamlessly with others and across different versions and loaders.</p><p id="15b046de-2d56-801a-98e9-fe41ffbf10b2" class="">
+</p><table id="15b046de-2d56-811c-9edf-e639250ca28f" class="simple-table"><tbody><tr id="15b046de-2d56-81f8-a88a-e4a389c4fde4"><td id="a@x]" class=""><strong>Features</strong></td><td id="wp|d" class=""><strong>Minecraft Forge MDK</strong></td><td id="tSl{" class=""><strong>Fabric Loader</strong></td><td id="=IO;" class=""><strong>Risugami&#x27;s Modloader</strong></td></tr><tr id="15b046de-2d56-815e-b273-ed64c5183f86"><td id="a@x]" class=""><strong>Ease of Use</strong></td><td id="wp|d" class="">High (Installer provided)</td><td id="tSl{" class="">Moderate (Requires manual setup)</td><td id="=IO;" class="">High (Simple file placement)</td></tr><tr id="15b046de-2d56-8160-91e8-f2c60422c5f9"><td id="a@x]" class=""><strong>Compatibility</strong></td><td id="wp|d" class="">High (Supports many mods)</td><td id="tSl{" class="">Moderate (Smaller mod support)</td><td id="=IO;" class="">Low (Limited mod support)</td></tr><tr id="15b046de-2d56-810e-ba3c-c61f269faefc"><td id="a@x]" class=""><strong>Performance</strong></td><td id="wp|d" class="">Good (Efficient and stable)</td><td id="tSl{" class="">Better (Lightweight)</td><td id="=IO;" class="">Moderate (Outdated)</td></tr><tr id="15b046de-2d56-819c-b69c-c96f3a490ccb"><td id="a@x]" class=""><strong>Community Support</strong></td><td id="wp|d" class="">Large (Plenty of resources and help)</td><td id="tSl{" class="">Smaller but dedicated</td><td id="=IO;" class="">Small (Deprecated)</td></tr><tr id="15b046de-2d56-81fb-badc-ddb320deb37e"><td id="a@x]" class=""><strong>Modularity</strong></td><td id="wp|d" class="">Good (Handles mod conflicts well)</td><td id="tSl{" class="">Excellent (Modular APIs)</td><td id="=IO;" class="">Poor (Basic mod support)</td></tr><tr id="15b046de-2d56-813a-8b10-e0f4a70e76c3"><td id="a@x]" class=""><strong>Early Access</strong></td><td id="wp|d" class="">No (Targets stable releases)</td><td id="tSl{" class="">Yes (Targets snapshots and releases)</td><td id="=IO;" class="">No (Deprecated)</td></tr></tbody></table><p id="15b046de-2d56-8110-8bdd-ddedfd05fb46" class="">Table 16. Comparison of Modding frameworks for Minecraft: Java Edition</p><p id="15b046de-2d56-8047-b39a-fbcda1eda243" class="">
+</p><p id="15b046de-2d56-81c7-9ae0-c81df18af745" class="">In this highly competitive environment, some mod developers have decided to lock their mod share-download ability behind a paywall. According to the survey, less than a quarter of respondents (16.4%) are willing to pay for mods, while a significant majority (83.6%) oppose paywalled mods.</p><p id="15b046de-2d56-81bc-b78c-d0704598f2b8" class="">Analyzing the responses from those who are willing to pay for mods reveals a common appreciation for the time and effort invested in development. For example, one respondent stated, “Making mods takes a significant amount of time and if they are not paid for their efforts, then we can&#x27;t really expect them to make higher quality mods with more content.” Another shared, “I am willing to pay for mods because I understand the time and effort it takes to bring these ideas to life. I don&#x27;t think it will be easy to find a successful model though a pay-to-play mod will be doomed from the start unless the content is truly impressive. If a substantial mod economy ever took form, it wouldn&#x27;t take long for Microsoft to do their thing and screw you over.” Additionally, one respondent noted, “If I see a creator who dedicated a lot of time to make the mod and it is a higher quality one, I am glad to support them with a donation. I don’t think that selling mods is a good idea.”</p><p id="15b046de-2d56-81bf-ad57-e24716a2398f" class="">On the other hand, there is strong opposition to paying for mods. As one user pointed out, “In the past, I actually donated to some authors on their Patreons and I believe people should be compensated for their work, but pay walling mods can create a dangerous environment and a fertile ground for scammers or low-effort creators. The same kind of &#x27;maximizing profits&#x27; mentality is the reason Forge is now being filled with an actual AI-generated slop.” Another respondent stated, “Ignoring that it&#x27;s against EULA, a modder should ultimately be making mods because they want to make mods, and share them - not because they get money or the like. Donations are fine, but a line is crossed when you MUST pay or [x] happens.” Finally, one user emphasized, “Paid mods turn what is normally a community passion into a business. This is generally antithetical to what I look for in mods. I also value open-source mods, which paid mods are not.”</p><p id="15b046de-2d56-810c-86e0-c9c7c1de46e5" class="">In summary, the survey sheds light on the intricate dynamics of paid mods in the gaming community. It reveals not just the economic preferences, but also the underlying values gamers hold about modding. Those willing to pay emphasize the significant effort and dedication required to develop high-quality mods, viewing financial support as a means to sustain and enhance modding endeavors. Conversely, the majority resistance reflects concerns about commercialization, potential exploitation, and the disruption of the communal, passion-driven spirit that defines the modding culture. These insights highlight the delicate balance required to support both innovation and accessibility within the modding landscape, aiming to maintain the enriching and collaborative essence of this creative activity.</p><p id="15b046de-2d56-8084-b01b-ce3f4c961554" class="">
+</p><h3 id="15b046de-2d56-81a3-b795-d9024727491a" class=""><strong>Key Insight and conclusions</strong></h3><p id="15b046de-2d56-810d-a98e-dc555547f262" class="">The modding community has a profound impact on both gameplay and development in Minecraft. Mods significantly enhance the overall gameplay experience, contributing to the game&#x27;s enjoyment, engagement, and personalization. The majority of users agree that mods make Minecraft more enjoyable and keep them interested in playing the game for a longer period, reflecting the sustained engagement that mods foster. Users show significant enthusiasm for exploring new mods, enjoying the process of browsing and trying out different mods. Satisfaction levels are high regarding both the quantity and quality of available mods. Users feel that their mod use style significantly impacts the general feel of Minecraft and think that mods make games better. Furthermore, many users prefer playing games that allow the use of mods, indicating a preference for customizable gameplay experiences. Mod developers express similarly high levels of satisfaction with the role of mods in enhancing Minecraft. Many developers agree that mods make Minecraft more enjoyable and keep them interested in the game for a longer period. While opinions on the importance of Vanilla+ mods are mixed, there is a notable interest in exploring new mods. Satisfaction with the number and quality of mods is also evident among developers. Developers recognize the significant impact of their mod use style on the game&#x27;s feel and believe that mods make games better. A majority prefer playing games that support mods, emphasizing their preference for customizable and extensible gameplay experiences. When examining the time spent weekly on Minecraft, notable differences emerge between users and developers. Users reported a broader range of engagement, with many dedicating significant time to playing. In contrast, developers reported varying playtime, often excluding time spent on playtesting within the development environment. This indicates that developers&#x27; interaction with Minecraft is more focused on modding activities rather than traditional gameplay. Some developers even reported zero playtime, highlighting their primary engagement through development rather than casual play. The influence of mods extends beyond gameplay, impacting the development of Minecraft itself. Mod developers&#x27; interaction with the game is more focused on modding activities rather than traditional gameplay, with many developers dedicating time to developing and testing mods. This interaction provides valuable insights and feedback that can guide the official development of the game. Developers often draw inspiration from popular mods, incorporating successful features and ideas into official updates. According to Egenfeldt-Nielsen et al. (2016), player-generated content often leads to innovative game features that developers adopt, bridging the gap between community innovation and game development. Mods allow for personalized gameplay experiences, enabling players to tailor the game to their preferences. Users feel that their mod use style significantly impacts the general feel of Minecraft. This customization enhances the game&#x27;s replayability, as players can adjust the game to suit their evolving tastes and interests. Whether it&#x27;s through aesthetic changes, new mechanics, or entirely new game modes, mods provide a unique and personalized gaming experience for each player. Consalvo (2018) emphasizes how mods offer players the ability to shape their gaming experiences, highlighting the significant impact of modding on player engagement. Both mod users and developers demonstrate a strong preference for games that support mods. Many users and developers prefer playing games that allow the use of mods, indicating the importance of modding support in their gaming preferences. This preference underscores the value that mods bring to the gaming experience, making games more attractive and engaging for a broader audience. The insights from both groups reflect a shared appreciation for the enhancements that mods bring to Minecraft. Mods contribute significantly to the enjoyment, engagement, and personalization of the game, making them a vital aspect of the Minecraft community. While users and developers engage with the game differently, both groups demonstrate a strong preference for mod-supported gameplay and a commitment to exploring new content. This shared enthusiasm underscores the importance of modding in fostering a vibrant and engaged community within Minecraft.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
